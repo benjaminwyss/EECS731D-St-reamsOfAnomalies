@@ -32,18 +32,25 @@ df['timeOfDay'] = (df.timestamp.dt.hour + df.timestamp.dt.minute / 60) / 23.5
 df.to_csv('../data/processed/nyc_taxi_transformed.csv')
 
 df.plot(x='timestamp', y='value', title='Total NYC Taxi Passenger Counts per Thirty Minutes vs. Timestamp')
+plt.show()
 
 df.head(24*2*7).plot(x='timestamp', y='value', title='One Week of Total NYC Taxi Passenger Counts per Thirty Minutes vs. Timestamp')
+plt.show()
 
 df[df.timestamp.dt.date == pd.Timestamp('2014-11-01')].plot(x='timestamp', y='value', title='NYC Marathon Anomaly Occuring at 19:00 Hours')
+plt.show()
 
 df[df.timestamp.dt.date == pd.Timestamp('2014-11-27')].plot(x='timestamp', y='value', title='Thanksgiving Anomaly Occuring at 15:30 Hours')
+plt.show()
 
 df[df.timestamp.dt.date == pd.Timestamp('2014-12-25')].plot(x='timestamp', y='value', title='Christmas Anomaly Occuring at 15:00Hours')
+plt.show()
 
 df[df.timestamp.dt.date == pd.Timestamp('2015-01-01')].plot(x='timestamp', y='value', title='New Year\'s Day Anomaly Occuring at 01:00 Hours')
+plt.show()
 
 df[df.timestamp.dt.date == pd.Timestamp('2015-01-27')].plot(x='timestamp', y='value', title='Blizzard Anomaly Occuring at 00:00 Hours')
+plt.show()
 
 X_value = df[['value']].values
 X_time = df[['value', 'timeOfDay']].values
